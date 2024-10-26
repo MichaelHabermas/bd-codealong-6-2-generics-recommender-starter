@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ProductServiceClientTest {
-    private File kidsProducts = new File("./tst/resources/kidsmovies.csv");
+    private final File kidsProducts = new File("./tst/resources/kidsmovies.csv");
     private ProductServiceClient productServiceClient;
 
     @BeforeEach

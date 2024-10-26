@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PrimeVideoRecommenderGetRecommendationTest {
-    private File kidsMovies = new File("./tst/resources/kidsmovies.csv");
+    private final File kidsMovies = new File("./tst/resources/kidsmovies.csv");
 
     // PARTICIPANT -- Update the generic types in PrimeVideoRecommender
-    private MostRecentlyUsed<?> mostRecentlyViewed;
-    private ReadOnlyDao<?, ?> readOnlyDAO;
+    private MostRecentlyUsed<PrimeVideo> mostRecentlyViewed;
+    private ReadOnlyDao<Long, PrimeVideo> readOnlyDAO;
     private Random random;
 
     private PrimeVideoRecommender primeVideoRecommender;
@@ -49,8 +49,11 @@ public class PrimeVideoRecommenderGetRecommendationTest {
         long[] moviesWatched = {1};
         long expectedRecommendation = 2;
 
-        assertTrue(false, "Not yet implemented.");
+        primeVideoRecommender.watch(1);
 
+        PrimeVideo result = primeVideoRecommender.getRecommendation();
+
+        assertEquals(result.getId(), expectedRecommendation, "Recommendation should be 2.");
     }
 
     @Test

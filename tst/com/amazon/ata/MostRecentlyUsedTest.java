@@ -1,5 +1,5 @@
-package com.amazon.ata.generics.recommender;
-
+package com.amazon.ata;
+import com.amazon.ata.generics.recommender.MostRecentlyUsed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

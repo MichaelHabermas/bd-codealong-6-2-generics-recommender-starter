@@ -9,7 +9,7 @@ package com.amazon.ata.generics.recommender;
 public class MostRecentlyUsed<E> {
     private int oldestIndex = 0;
     private int size = 0;
-    private E[] elements;
+    private final E[] elements;
 
     /**
      * Instantiates MostRecentlyUsed collection that can hold "capacity" items.

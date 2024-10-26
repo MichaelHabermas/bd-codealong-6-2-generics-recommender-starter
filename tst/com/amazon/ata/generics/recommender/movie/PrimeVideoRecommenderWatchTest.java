@@ -9,15 +9,14 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PrimeVideoRecommenderWatchTest {
-    private File kidsMovies = new File("./tst/resources/kidsmovies.csv");
+    private final File kidsMovies = new File("./tst/resources/kidsmovies.csv");
 
     // PARTICIPANT -- Update the generic types in PrimeVideoRecommender
-    private MostRecentlyUsed<?> mostRecentlyViewed;
-    private ReadOnlyDao<?, ?> readOnlyDAO;
+    private MostRecentlyUsed<PrimeVideo> mostRecentlyViewed;
+    private ReadOnlyDao<Long, PrimeVideo> readOnlyDAO;
     private Random random;
 
     private PrimeVideoRecommender primeVideoRecommender;
@@ -47,6 +46,12 @@ class PrimeVideoRecommenderWatchTest {
         // GIVEN
         long movieId = 9;
 
-        assertTrue(false, "Not yet implemented.");
+        primeVideoRecommender.watch(movieId);
+
+        assertEquals(1, mostRecentlyViewed.getSize(), "Expected size to be 1.");
+
+        assertEquals(9, mostRecentlyViewed.get(0).getId(), "Expected Ids to match.");
+
+//        assertTrue(false, "Not yet implemented.");
     }
 }
